@@ -1,0 +1,23 @@
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id       Int      @id @default(autoincrement())
+    username String
+    email    String   @unique
+    password String
+    role     String   @default("user")
+}
+
+model Product {
+    id    Int    @id @default(autoincrement())
+    name  String
+    price Float
+}
+
+model Category {
+    id   Int    @id @default(autoincrement())
+    name String
+}
